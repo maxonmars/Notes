@@ -1,0 +1,28 @@
+.search {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .search_input {
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        padding: 5px;
+        width: 30%;
+        height: 19px;
+        font-size: 16px;
+        color: #2b2b2b;
+        background: rgb(248, 247, 247);
+    }
+}
+
+@media screen and (max-width: 742px){
+    .search {
+        flex-direction: column;
+
+        .search_input {
+            width: 55%;
+        }
+    }
+}

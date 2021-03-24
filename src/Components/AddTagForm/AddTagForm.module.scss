@@ -1,0 +1,17 @@
+.tag_input_block {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 5px;
+
+    .tag_input {
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        padding: 5px;
+        width: 100%;
+        font-size: 16px;
+        color: #2b2b2b;
+        background: rgb(248, 247, 247);
+    }
+}

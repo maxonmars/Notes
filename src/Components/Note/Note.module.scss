@@ -1,0 +1,25 @@
+.note_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    min-width: 400px;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: rgb(39,82,150);
+    background: linear-gradient(90deg, rgba(39,82,150,1) 0%, rgba(9,121,97,0.7567401960784313) 43%, rgba(0,212,255,1) 100%);
+
+    .note_headline {
+        color: white;
+    }
+}
+
+@media screen and(max-width: 742px) {
+    .note_block {
+        min-width: 250px;
+    }
+
+}

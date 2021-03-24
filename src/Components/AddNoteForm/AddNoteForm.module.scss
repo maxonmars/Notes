@@ -1,0 +1,30 @@
+.adding_form {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+
+    .adding_form_input {
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        max-width: 300px;
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        color: #2b2b2b;
+        background: rgb(248, 247, 247);
+
+        &::placeholder {
+            color: #989595;
+        }
+    }
+
+    .none_btn_wrapper {
+        display: flex;
+        align-items: center;
+
+        .note_btn {
+            height: 100%;
+        }
+    }
+}

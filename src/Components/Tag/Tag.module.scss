@@ -1,0 +1,14 @@
+.tag {
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    margin: 2px;
+    width: min-content;
+    color: white;
+    background-color: #373737;
+
+    .tag_btn {
+        margin: 0 5px;
+    }
+}
