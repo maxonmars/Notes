@@ -9,8 +9,26 @@
     width: 100%;
     height: auto;
     border-radius: 10px;
-    background: rgb(39,82,150);
-    background: linear-gradient(90deg, rgba(39,82,150,1) 0%, rgba(9,121,97,0.7567401960784313) 43%, rgba(0,212,255,1) 100%);
+    background: rgb(39, 82, 150);
+    background: linear-gradient(90deg, rgba(39, 82, 150, 1) 0%, rgba(9, 121, 97, 0.7567401960784313) 43%, rgba(0, 212, 255, 1) 100%);
+
+    .control {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+
+        .delete_btn {
+            max-width: 50px;
+            padding: 10px;
+            font-weight: 600;
+            color: #989595;
+
+            &:hover {
+                background-color: #ff6f6f;
+                color: #f6f6f6;
+            }
+        }
+    }
 
     .note_headline {
         color: white;

@@ -28,6 +28,7 @@ export const SearchForm: React.FC<PropsType> = React.memo(({callback}) => {
     return (
         <div className={s.search}>
             <input value={value}
+                   placeholder='Search...'
                    onChange={inputHandler}
                    className={s.search_input}/>
             <Button onClick={onSendRequest}>FILTER</Button>

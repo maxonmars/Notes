@@ -51,12 +51,11 @@ export const NoteArea: React.FC<PropsType> = React.memo(({note, editMode, setEdi
             dispatch(addNewTagTC(newTagObj))
         }
     }
-    let test = ['foo', 'baz', 'bar']
 
     return (
         <>
             <div className={s.note_text_control}>
-                <Button onClick={changeNote}>Save</Button>
+                <Button className={s.save_btn} onClick={changeNote}>Save</Button>
             </div>
             {
                 !editMode
@@ -66,30 +65,12 @@ export const NoteArea: React.FC<PropsType> = React.memo(({note, editMode, setEdi
                               autoFocus
                               onKeyUp={addTagOnKeyPress}
                               onChange={textareaHandler}
-                              value={areaText}> 11111111</textarea>
+                              value={areaText}/>
+
             }
         </>
     )
 })
 
 
-//
-// const [res, setRes] = useState(areaText)
-// const markMatches = (e: ChangeEvent<HTMLTextAreaElement>) => {
-//     let res = test.join(' ')
-//     const req = e.target.value;//текст с инпута
-//     if (req) {
-//         const normReq = req
-//             .toLowerCase()
-//             .replace(/\s+/g, ' ')
-//             .trim()
-//             .split(' ')
-//             .sort((a, b) => b.length - a.length);
-//         res = res.replace(
-//             new RegExp(`(${normReq.join('|')})`, 'gi'),
-//             match => '<mark>' + match + '</mark>'
-//         );
-//     }
-//     setRes(res);
-// }
 

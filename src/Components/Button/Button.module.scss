@@ -11,6 +11,7 @@
     color: #2b2a2a;
     font-weight: 500;
     background: rgb(252, 255, 255);
+    transition: background-color 200ms;
 
     &:hover {
         background-color: #d9d9d9;

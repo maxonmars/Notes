@@ -1,26 +1,28 @@
 {
   "notes": [
     {
-      "id": "380f0210-8ce1-11eb-9deb-65a156d74b1c",
-      "title": "1",
-      "noteText": "Fake task...",
-      "created_date": 1616618450097,
-      "updated_date": 1616618450097
-    },
-    {
       "id": "3902ff00-8ce1-11eb-9deb-65a156d74b1c",
       "title": "2",
       "noteText": "Fake task...",
       "created_date": 1616618451696,
-      "updated_date": 1616618451696
-    },
-    {
-      "id": "39a1b000-8ce1-11eb-9deb-65a156d74b1c",
-      "title": "3",
-      "noteText": "Fake task...",
-      "created_date": 1616618452736,
-      "updated_date": 1616618452736
+      "updated_date": 1616744819038
     }
   ],
-  "tags": []
+  "tags": [
+    {
+      "id": "c1b07ba0-8d79-11eb-a172-d9026259fa07",
+      "title": "#1",
+      "noteId": "3902ff00-8ce1-11eb-9deb-65a156d74b1c"
+    },
+    {
+      "id": "c2654cb0-8d79-11eb-a172-d9026259fa07",
+      "title": "#2",
+      "noteId": "3902ff00-8ce1-11eb-9deb-65a156d74b1c"
+    },
+    {
+      "id": "8a76aa40-8e07-11eb-b881-7bd742329bd5",
+      "title": "#342",
+      "noteId": "3902ff00-8ce1-11eb-9deb-65a156d74b1c"
+    }
+  ]
 }

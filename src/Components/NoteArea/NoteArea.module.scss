@@ -1,17 +1,29 @@
 .note_text_control {
     display: flex;
+
+    .save_btn {
+        font-weight: 600;
+
+        &:hover {
+            background-color: #bfff82;
+        }
+    }
 }
 
-.note_text {
-    display: flex;
-    justify-content: flex-start;
-    color: #f3f3f3;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 5px;
-    min-height: 100px;
-    width: 97%;
-    border-radius: 6px;
+.area_block {
+    position: relative;
+
+    .note_text {
+        display: flex;
+        justify-content: flex-start;
+        color: #f3f3f3;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 5px;
+        min-height: 100px;
+        width: 97%;
+        border-radius: 6px;
+    }
 }
 
 .text_area {
@@ -27,6 +39,9 @@
     background: rgb(248, 247, 247);
     border-radius: 6px;
 }
+
+
+
 
 
 

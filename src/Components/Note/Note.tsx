@@ -25,7 +25,7 @@ export const Note: React.FC<PropsType> = React.memo(({note, ...props}) => {
     return (
         <div className={s.note_block}>
             <div className={s.control}>
-                <Button onClick={deleteNote}>Delete</Button>
+                <Button className={s.delete_btn} onClick={deleteNote}>X</Button>
             </div>
             <div className={s.note_headline}>
                 <h2>{note.title}</h2>
