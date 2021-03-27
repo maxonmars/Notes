@@ -2,6 +2,7 @@
   "name": "text_tag_editor",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://Sergey-lang.github.io/Notes-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
