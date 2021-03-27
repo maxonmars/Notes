@@ -23,7 +23,7 @@ export const AddTagForm: React.FC<PropsType> = React.memo(({noteId}) => {
         if (tagText.trim() !== '') {
             const newTagObj: TagType = {
                 id: v1(),
-                title: `#${tagText}`,
+                title: tagText,
                 noteId: noteId
             }
             dispatch(addNewTagTC(newTagObj))
@@ -39,7 +39,7 @@ export const AddTagForm: React.FC<PropsType> = React.memo(({noteId}) => {
             <input className={s.tag_input}
                    onChange={onChangeHandler}
                    value={tagText}
-                   type="text" placeholder='add tag...'/>
+                   type="text" placeholder='Add tag...'/>
             <Button onClick={addTag}>Add Tag</Button>
         </div>
     )

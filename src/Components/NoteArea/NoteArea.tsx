@@ -42,9 +42,10 @@ export const NoteArea: React.FC<PropsType> = React.memo(({note, editMode, setEdi
 
     const addTagOnKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.keyCode === 32 && tagsArray && tagsArray.length) {
+            const tag = tagsArray ? tagsArray[0] : ''
             const newTagObj: TagType = {
                 id: v1(),
-                title: tagsArray ? tagsArray[0] : '',
+                title: tag,
                 noteId: note.id
             }
             setAreaText(areaText.replace(/#/g, ''))
@@ -53,13 +54,14 @@ export const NoteArea: React.FC<PropsType> = React.memo(({note, editMode, setEdi
     }
 
     return (
-        <>
-            <div className={s.note_text_control}>
+        <div className={s.area_block}>
+            <div className={s.area_control}>
                 <Button className={s.save_btn} onClick={changeNote}>Save</Button>
+                <Button className={s.save_btn} onClick={changeEditMode}>Edit</Button>
             </div>
             {
                 !editMode
-                    ? <div className={s.note_text} onDoubleClick={changeEditMode}>{areaText}</div>
+                    ? <div className={s.note_text}>{areaText}</div>
                     :
                     <textarea className={s.text_area}
                               autoFocus
@@ -68,9 +70,6 @@ export const NoteArea: React.FC<PropsType> = React.memo(({note, editMode, setEdi
                               value={areaText}/>
 
             }
-        </>
+        </div>
     )
 })
-
-
-

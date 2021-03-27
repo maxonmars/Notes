@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import Button from '../Button/Button';
 import {useDispatch} from 'react-redux';
 import {getNotesListTC} from '../../redux/notes-reducer';
@@ -17,9 +17,9 @@ export const SearchForm: React.FC<PropsType> = React.memo(({callback}) => {
         setValue(e.currentTarget.value)
     }
 
-    const onSendRequest = () => {
+    const onSendRequest = useCallback(() => {
         callback(`#${value}`)
-    }
+    }, [callback, value])
 
     const showAll = () => {
         dispatch(getNotesListTC())
@@ -27,10 +27,11 @@ export const SearchForm: React.FC<PropsType> = React.memo(({callback}) => {
 
     return (
         <div className={s.search}>
-            <input value={value}
+            <input className={s.search_input}
+                   value={value}
                    placeholder='Search...'
                    onChange={inputHandler}
-                   className={s.search_input}/>
+            />
             <Button onClick={onSendRequest}>FILTER</Button>
             <Button onClick={showAll}>All</Button>
         </div>

@@ -12,7 +12,6 @@ type PropsType = {
 }
 
 export const TagsBlock: React.FC<PropsType> = React.memo(({tags, noteId, editMode}) => {
-
     const mappedTags = useCallback(() => {
         return tags && tags.map(tag => <Tag key={tag.id}
                                             tag={tag}

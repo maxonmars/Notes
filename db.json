@@ -1,28 +1,18 @@
 {
   "notes": [
     {
-      "id": "3902ff00-8ce1-11eb-9deb-65a156d74b1c",
-      "title": "2",
-      "noteText": "Fake task...",
-      "created_date": 1616618451696,
-      "updated_date": 1616744819038
+      "id": "08bce030-8edb-11eb-be21-dd6f5820bd77",
+      "title": "1",
+      "noteText": "23у23уFake ta23",
+      "created_date": 1616835696051,
+      "updated_date": 1616835754210
     }
   ],
   "tags": [
     {
-      "id": "c1b07ba0-8d79-11eb-a172-d9026259fa07",
-      "title": "#1",
-      "noteId": "3902ff00-8ce1-11eb-9deb-65a156d74b1c"
-    },
-    {
-      "id": "c2654cb0-8d79-11eb-a172-d9026259fa07",
+      "id": "2ce550a0-8edb-11eb-be21-dd6f5820bd77",
       "title": "#2",
-      "noteId": "3902ff00-8ce1-11eb-9deb-65a156d74b1c"
-    },
-    {
-      "id": "8a76aa40-8e07-11eb-b881-7bd742329bd5",
-      "title": "#342",
-      "noteId": "3902ff00-8ce1-11eb-9deb-65a156d74b1c"
+      "noteId": "08bce030-8edb-11eb-be21-dd6f5820bd77"
     }
   ]
 }

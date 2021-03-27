@@ -15,7 +15,7 @@ export const App: React.FC = React.memo(() => {
     const notesArr = useSelector(selectorNotesList)
     const tagsArr = useSelector(selectorTagsList)
 
-    const addNote = useCallback((title: string,) => {
+    const addNote = (title: string,) => {
         const newNoteObj: NoteType = {
             id: v1(),
             title: title,
@@ -24,7 +24,7 @@ export const App: React.FC = React.memo(() => {
             updated_date: new Date().getTime()
         }
         dispatch(addNewNoteTC(newNoteObj))
-    }, [])
+    }
 
     useEffect(() => {
         dispatch(getNotesListTC())
