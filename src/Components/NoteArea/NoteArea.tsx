@@ -1,9 +1,10 @@
-import React, {ChangeEvent, useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {v1} from 'uuid';
 import {NoteType, updateNoteTC} from '../../redux/notes-reducer';
 import {addNewTagTC, TagType} from '../../redux/tags-reducer';
 import Button from '../Button/Button';
+import Highlighter from "react-highlight-words";
 
 import s from './NoteArea.module.scss';
 
@@ -11,15 +12,42 @@ type PropsType = {
     note: NoteType
     editMode: boolean
     setEditMode: (value: boolean) => void
+    tags: TagType[]
 }
 
-export const NoteArea: React.FC<PropsType> = React.memo(({note, editMode, setEditMode}) => {
+export const NoteArea: React.FC<PropsType> = React.memo(({note, editMode, setEditMode, tags}) => {
     const dispatch = useDispatch()
     const [areaText, setAreaText] = useState<string>(note.noteText)
+    const [localTag, setLocalTag] = useState<string[]>([])
+    const [scrollTopPosition, setScrollTopPosition] = useState<any>(0)
 
-    const textareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const areaRef = useRef()
+    const backScroll = useRef()
+
+    useEffect(()=>{
+        if(areaRef.current){
+            console.log('set layout')
+        //@ts-ignore
+        // setScrollTopPosition(areaRef.current.scrollTop)
+        }
+
+        if(backScroll.current){
+            console.log('back = top')
+            //@ts-ignore
+            backScroll.current.scrollTop = scrollTopPosition
+        }
+    },[scrollTopPosition,areaText])
+
+    const textareaHandler = (e: any) => {
+        //@ts-ignore
+        // setScrollTopPosition(areaRef.current.scrollTop)
         setAreaText(e.currentTarget.value)
     }
+
+    let onScrollHandler = () => {
+        //@ts-ignore
+        setScrollTopPosition(areaRef.current.scrollTop)
+    };
 
     const changeEditMode = useCallback(() => {
         setEditMode(true)
@@ -40,7 +68,11 @@ export const NoteArea: React.FC<PropsType> = React.memo(({note, editMode, setEdi
 
     const tagsArray = areaText.match(/#[0-9A-Za-zА-Яа-яё]+/g);
 
-    const addTagOnKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const addTagOnKeyPress = (e: any) => {
+        //@ts-ignore
+        console.log(areaRef.current.scrollTop)
+        //@ts-ignore
+        setScrollTopPosition((prevState: any)=> prevState - 6)
         if (e.keyCode === 32 && tagsArray && tagsArray.length) {
             const tag = tagsArray ? tagsArray[0] : ''
             const newTagObj: TagType = {
@@ -49,6 +81,7 @@ export const NoteArea: React.FC<PropsType> = React.memo(({note, editMode, setEdi
                 noteId: note.id
             }
             setAreaText(areaText.replace(/#/g, ''))
+            setLocalTag([newTagObj.title.replace(/#/g, ''), ...localTag,])
             dispatch(addNewTagTC(newTagObj))
         }
     }
@@ -63,11 +96,30 @@ export const NoteArea: React.FC<PropsType> = React.memo(({note, editMode, setEdi
                 !editMode
                     ? <div className={s.note_text}>{areaText}</div>
                     :
-                    <textarea className={s.text_area}
-                              autoFocus
-                              onKeyUp={addTagOnKeyPress}
-                              onChange={textareaHandler}
-                              value={areaText}/>
+                    <div className={s.textContainer}>
+
+                        <div className={s.highlighterContainer}
+                            //@ts-ignore
+                             ref={backScroll}>
+
+                            <Highlighter
+                                className={s.highlighter}
+                                searchWords={localTag}
+                                textToHighlight={areaText}
+                            />
+                        </div>
+
+                        <textarea className={s.text_area}
+                                  autoFocus
+                                  onKeyDown={addTagOnKeyPress}
+                                  onChange={textareaHandler}
+                                  value={areaText}
+                            //@ts-ignore
+                                  ref={areaRef}
+                                  onScroll={onScrollHandler}
+                        />
+
+                    </div>
 
             }
         </div>

@@ -32,7 +32,9 @@ export const Note: React.FC<PropsType> = React.memo(({note, ...props}) => {
             </div>
             <NoteArea note={note}
                       editMode={editMode}
-                      setEditMode={setEditMode}/>
+                      setEditMode={setEditMode}
+                      tags={tags}
+            />
             <TagsBlock tags={tags}
                        editMode={editMode}
                        noteId={note.id}/>

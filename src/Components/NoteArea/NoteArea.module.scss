@@ -1,11 +1,13 @@
 .area_block {
   display: flex;
   flex-direction: column;
+
   width: 100%;
 
   .area_control {
     display: flex;
     justify-content: center;
+
     margin-bottom: 10px;
 
     .save_btn {
@@ -18,28 +20,91 @@
   }
 
   .note_text {
-    display: flex;
-    color: #f3f3f3;
     font-size: 18px;
     font-weight: 500;
-    overflow-wrap: anywhere;
-    min-height: 100px;
+
+    display: flex;
+
     width: 100%;
+    min-height: 100px;
+
+    color: #f3f3f3;
+
+    overflow-wrap: anywhere;
   }
 
-  .text_area {
-    outline: none;
-    font-size: 18px;
-    border: none;
-    resize: none;
-    font-weight: 500;
-    padding: 5px;
-    min-height: 100px;
-    width: 97%;
-    color: #2b2b2b;
-    background: rgb(248, 247, 247);
-    border-radius: 6px;
+  .textContainer {
+    position: relative;
+    max-width: 360px;
+    height: 120px;
+
+    .highlighterContainer {
+      position: absolute;
+      z-index: 1;
+
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      width: 100%;
+      height: 100%;
+
+      box-sizing: border-box;
+
+      .highlighter {
+        font-family: monospace;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: normal;
+
+
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        white-space: pre-wrap;
+
+        color: red;
+
+        & > mark {
+          white-space: pre-wrap;
+
+          color: red;
+          overflow-wrap: break-word;
+        }
+
+        & > span {
+          overflow-x: hidden;
+
+          white-space: pre-wrap;
+          overflow-wrap: break-word;
+        }
+      }
+    }
+
+    .text_area {
+      font-size: 18px;
+      font-weight: 500;
+
+      position: relative;
+      z-index: 5;
+
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      resize: none;
+      white-space: pre-wrap;
+
+      color: #2b2b2b;
+      border: none;
+      outline: none;
+      background: transparent;
+    }
   }
 }
-
-
